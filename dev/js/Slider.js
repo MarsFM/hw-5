@@ -21,8 +21,8 @@ class Slider {
     this.indicatorsBlock = indicatorsBlock;
 
     this._renderStartIndicators();
-    this._resize();
-    this._reresize();
+
+    this._intervalResize();
     this._indicatorTaped();
 
     this._showPopup();
@@ -100,7 +100,9 @@ class Slider {
     });
   }
 
-  _reresize() {
+  _intervalResize() {
+    this._resize();
+
     this.root.addEventListener('resize', this._resize.bind(this));
   }
 
